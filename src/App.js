@@ -1,23 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./pages/home";
+import SingIn from "./pages/singin";
+import SingUp from "./pages/singup";
+import Sport from "./pages/sport";
+import Cultural from "./pages/cultural";
+import Politician from "./pages/politician";
+
+
+// LEVEL2
+import { useContext } from "react";
+import ThemeContext from "./context/ThemeContext";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+    errorElement: <h1>SORROY.........</h1>,
+  },
+
+  {
+    path: "/sport",
+    element: <Sport />,
+  },
+
+  {
+    path: "/cultural",
+    element: <Cultural />,
+  },
+  {
+    path: "/politician",
+    element: <Politician />,
+  },
+  {
+    path: "/singin",
+    element: <SingIn />,
+  },
+  {
+    path: "/singup",
+    element: <SingUp />,
+  },
+
+]);
 
 function App() {
+  const { theme } = useContext(ThemeContext);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`${theme}`}>
+      <RouterProvider router={router} />
     </div>
   );
 }
