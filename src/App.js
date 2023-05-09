@@ -10,6 +10,8 @@ import Politician from "./pages/politician";
 // LEVEL2
 import { useContext } from "react";
 import ThemeContext from "./context/ThemeContext";
+import Profile from "./pages/profile";
+
 
 const router = createBrowserRouter([
   {
@@ -38,6 +40,10 @@ const router = createBrowserRouter([
   {
     path: "/singup",
     element: <SingUp />,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
   },
 
 ]);

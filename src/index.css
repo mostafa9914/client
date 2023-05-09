@@ -48,11 +48,12 @@ h1 {
 level 2 singin and singUp
 ====================================*/
 
-form{
+form {
   display: flex;
   flex-direction: column;
 }
-input{
+
+input {
   margin-bottom: 18px;
   padding: 10px 12px;
   border: 1px solid #607d8b;
@@ -61,7 +62,8 @@ input{
   border-radius: 5px;
 
 }
-form button{
+
+form button {
   padding: 8px 12px;
   background-color: teal;
   border-radius: 5px;
@@ -70,28 +72,33 @@ form button{
   border: none;
   color: white;
 }
-form button:active{
+
+form button:active {
   scale: 0.9;
 }
 
-.account{
+.account {
   font-size: 16px;
   margin-top: 12px;
   font-weight: 100;
 }
-.account a{
+
+.account a {
   text-decoration: underline;
   color: teal;
   font-size: 18px;
   font-weight: 600;
 }
-.Light form p{
+
+.Light form p {
   color: black;
 }
-.p-create{
+
+.p-create {
   margin-bottom: 22px;
   font-size: 23px;
 }
-.Light .p-create{
-color: black;
+
+.Light .p-create {
+  color: black;
 }

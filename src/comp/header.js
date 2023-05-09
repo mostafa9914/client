@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
 import "../theme.css";
@@ -9,6 +9,9 @@ import ThemeContext from "../context/ThemeContext";
 
 const Header = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  
+
   return (
     <div className="myheader">
       <header className="hide-when-mobile ali">
@@ -36,8 +39,6 @@ const Header = () => {
           }}
         ></i>
         <ul className="flex">
-      
-
           {/* <li className="main-list">
               <NavLink className="main-link" to="/singup">
                 Sing Up
@@ -64,7 +65,7 @@ const Header = () => {
           </li>
           <li className="main-list">
             <NavLink className="main-link" to="/cultural">
-            Cultural
+              Cultural
             </NavLink>
           </li>
 
@@ -73,17 +74,44 @@ const Header = () => {
               Politician
             </NavLink>
           </li>
-
-          <li className="main-list">
-            <NavLink className="main-link" to="/singin">
-              Sing in
-            </NavLink>
-          </li>
-          <li className="main-list">
-            <NavLink className="main-link" to="/singup">
-              Sing Up
-            </NavLink>
-          </li>
+        
+          {!isLoggedIn && (
+            <React.Fragment>
+              <li className="main-list" >
+                <NavLink className="main-link" to="/singin">
+                  Sign in
+                </NavLink>
+              </li>
+              <li className="main-list">
+                <NavLink className="main-link" to="/singup">
+                  Sign up
+                </NavLink>
+              </li>
+            </React.Fragment>
+          )}
+      
+          {!isLoggedIn && (
+            <React.Fragment>
+              <li className="main-list">
+                <NavLink className="main-link" to="/profile">
+                  Profile
+                </NavLink>
+              </li>
+              <li className="main-list">
+                <NavLink
+                  className="main-link"
+                  to="/"
+                  onClick={() => {
+                    localStorage.removeItem("token");
+                    setIsLoggedIn(false);
+                  }}
+                >
+                  Log out
+                </NavLink>
+              </li>
+            </React.Fragment>
+          )}
+      
         </ul>
       </header>
 
